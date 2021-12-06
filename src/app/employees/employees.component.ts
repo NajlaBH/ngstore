@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CrudService } from '../crud.service';
+import { Employee } from '../models/emplyee_model';
 
 @Component({
   selector: 'app-employees',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-
-  constructor() { }
+  employeesList:Employee[]=[];
+  constructor(public cruds:CrudService) { }
 
   ngOnInit(): void {
+    this.employeesList=this.cruds.employees;
   }
 
 }

@@ -22,14 +22,14 @@
               </tr>
           </thead>
           <tbody>
-              <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>Otto</td>
-              <td>@mdo</td>  
-              <td><button type="button" class="btn btn-danger"><small>DELETE</small></button></td>           
+              <tr *ngFor="let e of employeesList">
+              <th scope="row">{{e.idEmployee}}</th>
+              <td>{{e.fullname}}</td>
+              <td>{{e.email}}</td>
+              <td>@{{e.address}}</td>
+              <td>{{e.phone}}</td>
+              <td>@{{e.website}}</td>  
+              <td><button type="button" class="btn btn-danger" (click)= "cruds.deleteContact(e.idEmployee)"><small>DELETE</small></button></td>           
               </tr>
           </tbody>
       </table>
