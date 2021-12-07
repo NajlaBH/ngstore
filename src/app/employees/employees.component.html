@@ -26,10 +26,10 @@
               <th scope="row">{{e.idEmployee}}</th>
               <td>{{e.fullname}}</td>
               <td>{{e.email}}</td>
-              <td>@{{e.address}}</td>
+              <td>{{e.address}}</td>
               <td>{{e.phone}}</td>
-              <td>@{{e.website}}</td>  
-              <td><button type="button" class="btn btn-danger" (click)= "cruds.deleteContact(e.idEmployee)"><small>DELETE</small></button></td>           
+              <td>{{e.website}}</td>  
+              <td><button type="button" routerLink="/" class="btn btn-danger" (click)= "cruds.deleteContact(e.idEmployee)"><small>DELETE</small></button></td>           
               </tr>
           </tbody>
       </table>

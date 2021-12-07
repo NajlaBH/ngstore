@@ -12,7 +12,7 @@ export class EmployeesComponent implements OnInit {
   constructor(public cruds:CrudService) { }
 
   ngOnInit(): void {
-    this.employeesList=this.cruds.employees;
+    this.employeesList=this.cruds.getEmployeesList();
   }
 
 }

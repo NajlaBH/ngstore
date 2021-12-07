@@ -8,6 +8,7 @@ export class CrudService {
 
   //Get Total of employees send to navbar
   totalEmployees:number=0;
+  listOfEmployees:Employee[]=[];
 
   //Declaration & initialization
   employees:Employee[]=[
@@ -18,7 +19,16 @@ export class CrudService {
     {idEmployee:4,fullname:"OPQ",email:"opk@gmail.com",address:"opkaddress",phone:"400000000",website:"opqwebsite.com"},
   ];
 
+  //employees:Employee[]=[];
+
+
   constructor() { }
+
+  //Get list of employees
+  getEmployeesList(){
+    return this.listOfEmployees=this.employees;
+  }
+
 
   //Get Total of employees send to navbar
   getTotalEmployees(){
@@ -30,9 +40,16 @@ export class CrudService {
   deleteContact(key: number) {
     this.employees.forEach((value,index)=>{
         if(value.idEmployee==key) 
-	   this.employees.splice(index,1);
-           console.log("index deleted:", index);
-           this.getTotalEmployees()
+	        this.employees.splice(index,1);
+          console.log("index deleted:", index);
+          this.getEmployeesList()
+          this.getTotalEmployees()
         });
+  }
+
+
+  //add employee to the list
+  addEmployeeService(dataEmployee:Employee){
+    this.employees.push(dataEmployee);
   }
 }

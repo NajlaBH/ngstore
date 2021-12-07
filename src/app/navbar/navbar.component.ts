@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CrudService } from '../crud.service';
+import { Employee } from '../models/emplyee_model';
 
 @Component({
   selector: 'app-navbar',
@@ -8,12 +9,15 @@ import { CrudService } from '../crud.service';
 })
 export class NavbarComponent implements OnInit {
   //total employees navbar
-  employeesTotal:number=0;
 
-  constructor(private cruds:CrudService) { }
+  employeesList:Employee[]=[];
+
+
+  constructor(public cruds:CrudService) { }
 
   ngOnInit(): void {
-    this.employeesTotal= this.cruds.getTotalEmployees();
+    this.employeesList=this.cruds.employees;
+
   }
   
 }
