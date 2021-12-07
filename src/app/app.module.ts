@@ -8,13 +8,15 @@ import { EmployeesComponent } from './employees/employees.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdatemployeeComponent } from './updatemployee/updatemployee.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeComponent,
     EmployeesComponent,
-    NavbarComponent
+    NavbarComponent,
+    UpdatemployeeComponent
   ],
   imports: [
     BrowserModule,

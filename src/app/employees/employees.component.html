@@ -29,7 +29,10 @@
               <td>{{e.address}}</td>
               <td>{{e.phone}}</td>
               <td>{{e.website}}</td>  
-              <td><button type="button" routerLink="/" class="btn btn-danger" (click)= "cruds.deleteContact(e.idEmployee)"><small>DELETE</small></button></td>           
+              <td>
+                <button type="button"  class="btn btn-danger" (click)= "cruds.deleteEmployee(e.idEmployee)"><small>DELETE</small></button>
+                <button type="button"  class="btn btn-warning" (click)= "cruds.updateEmployeeService(e.idEmployee)"><small>UPDATE</small></button>              
+              </td>           
               </tr>
           </tbody>
       </table>

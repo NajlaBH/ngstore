@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from './models/emplyee_model';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ export class CrudService {
   //Get Total of employees send to navbar
   totalEmployees:number=0;
   listOfEmployees:Employee[]=[];
+  indexToUpdate:number=0;
+
 
   //Declaration & initialization
   employees:Employee[]=[
@@ -22,7 +25,7 @@ export class CrudService {
   //employees:Employee[]=[];
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   //Get list of employees
   getEmployeesList(){
@@ -37,7 +40,7 @@ export class CrudService {
   
 
   //Delete employee by index
-  deleteContact(key: number) {
+  deleteEmployee(key: number) {
     this.employees.forEach((value,index)=>{
         if(value.idEmployee==key) 
 	        this.employees.splice(index,1);
@@ -52,4 +55,17 @@ export class CrudService {
   addEmployeeService(dataEmployee:Employee){
     this.employees.push(dataEmployee);
   }
+
+  //updateEmployee
+  updateEmployeeService(key:number){
+    this.employees.forEach((value,index)=>{
+      if(value.idEmployee==key) 
+        //console.log("index Updated:", index);
+        this.indexToUpdate= key;
+        //console.log("indexToUpdated:", this.indexToUpdate);
+        this.router.navigateByUrl('/update');
+        return index;
+    });
+  }
+
 }
